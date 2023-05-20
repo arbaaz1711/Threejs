@@ -1,0 +1,64 @@
+
+//This code can be added in the html file of our project for shaders
+
+<script type="x-shader/x-vertex" id="vertexshader">
+
+      attribute float size;
+      attribute vec3 customColor;
+
+      varying vec3 vColor;
+
+      void main() {
+
+          vColor = customColor;
+
+          vec4 mvPosition = modelViewMatrix * vec4( position, 1.0 );
+
+          gl_PointSize = size * ( 2000.0 / -mvPosition.z );
+
+          gl_Position = projectionMatrix * mvPosition;
+
+      }
+    </script>
+    <script type="x-shader/x-fragment" id="fragmentshader">
+
+      uniform vec3 color;
+      uniform sampler2D pointTexture;
+      varying vec3 vColor;
+
+      void main() {
+
+          gl_FragColor = vec4( color * vColor, 1.0 );
+          gl_FragColor = gl_FragColor * texture2D(pointTexture,gl_PointCoord);
+
+
+      }
+    </script>
+
+    <script type="x-shader/x-vertex" id="vertexshader2">
+
+      varying vec2 vUv;
+      void main()
+      {
+          vUv = uv;
+          vec4 mvPosition = modelViewMatrix * vec4(position,1.0);
+          gl_Position = projectionMatrix * mvPosition;
+      }
+    </script>
+    <script type="x-shader/x-fragment" id="fragmentshader2">
+
+      uniform float time;
+
+      varying vec2 vUv;
+
+      void main() {
+
+          vec2 position = -1.0 +2.0 * vUv;
+          float red = abs( sin( position.x * position.y + time/2.0));
+          float blue = abs( sin( position.x * position.y + time/4.0));
+          float green = abs( sin( position.x * position.y + time/5.0));
+          gl_FragColor = vec4( red,green,blue, 1.0 );
+
+
+      }
+    </script>

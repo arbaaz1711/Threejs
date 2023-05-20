@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" type="" href="about:blank" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Learning THREE</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+      html {
+        width: 100%;
+        height: 100%;
+        
+        /* FF3.6-15 */
+        /* background: -moz-linear-gradient(
+          top,
+          #11e8bb 0%,
+          #8200c9 100%
+        );  */
+
+        /* Chrome10-25,Safari5.1-6 */
+        /* background: -webkit-linear-gradient(
+          top,
+          #050505 0%,
+          #8200c9 100%
+        );  */
+
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        /* background: linear-gradient(
+          to bottom,
+          #000000 1%, 
+          #8200c9 70%,
+          #000000 100%
+        );  */
+        background-color: #990099;
+        
+      }
+      body {
+        margin: 0;
+        position: relative;
+        font-family: "Poppins", sans-serif;
+        /* min-height: 3000px; */
+      }
+      .section1 {
+        color: white;
+        position: fixed;
+        z-index: 1;
+        margin-left: 70%;
+        margin-top: 15%;
+        opacity: 0;
+        /* background: -webkit-linear-gradient(#8200c9, #000000);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; */
+      }
+      .section2 {
+        width: 50%;
+        color: #FF5858;
+        position: fixed;
+        z-index: 1;
+        margin-left: 55%;
+        margin-top: 16%;
+        opacity: 0;
+      }
+      .section2 h2{
+        font-size: 40px;
+        margin-left: 2%;
+      }
+      .section3 {
+        color: #FF5858;
+        position: fixed;
+        z-index: 1;
+        margin-left: 55%;
+        margin-top: 15%;
+        opacity: 0;
+      }
+      .section3 h3{
+        margin-left: 10%;
+        font-size: 40px;
+      }
+      .section4{
+        margin-left: 49%;
+        position: fixed;
+        height: 30vh;
+        width:50%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        line-height: 30px;
+      }
+      .section4 h2{
+        opacity: 0;
+        color: #E0144C;
+        font-size: 40px;
+        margin-left: -33%;
+      }
+      .section5{
+        margin-left: 50%;
+        margin-top: 16%;
+        position: fixed;
+        height: 60vh;
+        width:35%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        /* line-height: 50%; */
+        
+      }
+      .section5 h2{
+        opacity: 0;
+        color: #FF5858;
+        font-size: 40px;
+        margin-left: 19%;
+        /* transform: skewY(-20deg); */
+      }
+      .section6{
+        margin-left: 50%;
+        margin-top: 20%;
+        position: fixed;
+        height: 60vh;
+        width:30%;
+        color: #FF5858;
+      }
+      .section6 img{
+        width: 10%;
+        opacity: 0;
+        margin-left: 33%;
+      }
+      .section6 h2{
+        font-size: 30px;
+        opacity: 0;
+        margin-left: 30%;
+      }
+      .title h2 {
+        color: #FF97C1;
+        position: fixed;
+        z-index: 1;
+        font-size: 80px;
+        top: 20%;
+        left: 32%;
+        opacity: 1;
+        /* display: none; */
+         /* background: -webkit-linear-gradient(#8200c9, #fffcfc);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent; */
+      }
+      #canvas {
+        /* width: 100vw; */
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: -1;
+      }
+      canvas {
+        display: block;
+      }
+      .battery{
+        position: fixed;
+        width: 15%;
+        margin-left: 60%;
+        margin-top:15% ;
+        overflow: hidden;
+        opacity: 0;
+      }
+      .innerBat{
+        margin-left: -75%;
+        overflow: hidden;
+        position: absolute;
+        z-index: -1;
+        width: 70%;
+      }
+      .outerBat{
+        overflow: hidden;
+        position: relative;
+        z-index: 9;
+        width: 70%;
+      } 
+    </style>
+  </head>
+  <body>
+    <script src="main.js" defer></script>
+        <!-- for splitting the text to animate character individually -->
+    <script src="https://unpkg.com/split-type"></script> 
+    <div id="canvas">
+    </div>
+    <section class="title">
+      <h2>iPhone 14 Pro</h2>
+    </section>
+    <!-- <section class="section1">
+      <h2>Volume Up & Down</h2>
+    </section> -->
+    <section class="section2">
+      <h2>Stylish Keys</h2>
+      <ul>
+        <li>Volume Up</li>
+        <li>Volume Down</li>
+      </ul>
+    </section>
+    <section class="section3">
+      <h3>Camera</h3>
+      <ul>
+        <li>Dual Camera with zoom effect</li>
+        <li>20px with 3.0 zoom</li>
+        <li>Telescopic feature</li>
+      </ul>
+    </section>
+    <section class="section4">
+      <h2 class="big">Big</h2>
+      <h2>and Bigger</h2>
+    </section>
+    <section class="section5">
+      <h2>Vibrant Super Retina XDR Display</h2>
+    </section>
+     <section class="section6">
+      <img src="battery1.jpg" alt="battery11">
+      <h2>Our longest battery life ever</h2>
+     </section>
+     <div class="battery">
+      <img class="outerBat" src="https://www.apple.com/v/iphone-14/b/images/overview/hero/hero_battery__jtsk5nz27w6e_large.png" alt="">
+       <img class="innerBat" src="https://www.apple.com/v/iphone-14/b/images/overview/hero/hero_battery_fill__codbl8bf5u82_large.png" alt="">
+     </div>
+  </body>
+</html>
